@@ -1,0 +1,8 @@
+{
+    "LinearSearchList": {
+        "type": "fn",
+        "fn": "linear_search",
+        "args": "haystack, needle",
+        "return": "boolean"
+    }
+}
