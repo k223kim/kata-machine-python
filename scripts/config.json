@@ -10,5 +10,11 @@
         "fn": "bs_list",
         "args": "haystack, needle",
         "return": "boolean"
+    },
+    "BubbleSort":{
+        "type": "fn",
+        "fn": "bubble_sort",
+        "args": "haystack",
+        "return": "void"
     }
 }
