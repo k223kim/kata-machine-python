@@ -25,23 +25,30 @@ def generate_function_code(func_name, func_info, day_dir):
     with open(save_path, 'w+') as f:
         f.write(function_text)
 
-def generate_class_code(class_name, class_info):
-    generics = class_info.get("generic", "").replace("<", "[").replace(">", "]")
-    class_code = f"class {class_name}{generics}:\n"
+def generate_class_code(class_name, class_info, day_dir):
+    save_path = os.path.join(day_dir, f'{class_name}.py')
+    class_code = f"class {class_name}:\n"
+    class_code += "    def __init__(self):\n"
     properties = class_info.get("properties", [])
-    for prop in properties:
-        class_code += f"    {prop['name']}: {prop['type']}  # {prop['scope']}\n"
+    if len(properties) == 0:
+        class_code += "        pass\n"
+    for property in properties:
+        class_code += f"    self.{property['name']} = None\n"
     methods = class_info.get("methods", [])
     for method in methods:
-        args = method["args"].replace(":", ": ").replace(",", ", ")
-        class_code += f"\n    def {method['name']}(self, {args}):\n"
-        class_code += "        pass\n"
-    return class_code
+        if len(method['args']) == 0:
+            class_code += f"    def {method['name']}(self):\n        pass\n"
+        else:
+            class_code += f"    def {method['name']}(self, {method['args']}):\n        pass\n"
+    with open(save_path, 'w+') as f:
+        f.write(class_code)
 
 def main(config, day_dir):
     for key, val in config.items():
         if val["type"] == "fn":
             generate_function_code(key, val, day_dir)
+        elif val["type"] == "class":
+            generate_class_code(key, val, day_dir)
 
 if __name__ == "__main__":
     root_dir = os.path.dirname(os.path.abspath(__file__))

@@ -1,6 +1,4 @@
 import pytest
-import sys
-import os
 from BubbleSort import bubble_sort
 
 def test_bubble_sort():
