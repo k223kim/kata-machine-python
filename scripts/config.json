@@ -4,5 +4,11 @@
         "fn": "linear_search",
         "args": "haystack, needle",
         "return": "boolean"
+    },
+    "BinarySearchList": {
+        "type": "fn",
+        "fn": "bs_list",
+        "args": "haystack, needle",
+        "return": "boolean"
     }
 }

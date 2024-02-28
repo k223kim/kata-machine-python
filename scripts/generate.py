@@ -21,7 +21,7 @@ def update_pytest(new_day_dir, pytest_dir):
 
 def generate_function_code(func_name, func_info, day_dir):
     save_path = os.path.join(day_dir, f'{func_name}.py')
-    function_text = f"def {func_info['fn']}({func_info['args']}):\n"
+    function_text = f"def {func_info['fn']}({func_info['args']}):\n    pass"
     with open(save_path, 'w+') as f:
         f.write(function_text)
 
