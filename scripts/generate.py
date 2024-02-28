@@ -33,7 +33,7 @@ def generate_class_code(class_name, class_info, day_dir):
     if len(properties) == 0:
         class_code += "        pass\n"
     for property in properties:
-        class_code += f"    self.{property['name']} = None\n"
+        class_code += f"        self.{property['name']} = None\n"
     methods = class_info.get("methods", [])
     for method in methods:
         if len(method['args']) == 0:

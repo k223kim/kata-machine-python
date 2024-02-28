@@ -1,6 +1,4 @@
 import pytest
-import sys
-import os
 from Queue import Queue
 
 def test_queue():

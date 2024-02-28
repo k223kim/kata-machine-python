@@ -33,6 +33,22 @@
              "args": "",
              "return": "void"}
         ]
-
+    },
+    "Stack":{
+        "type": "class",
+        "properties": [
+            {"name": "length"}
+        ],
+        "methods": [
+            {"name": "push",
+             "args": "item",
+             "return": "void"},
+            {"name": "pop",
+             "args": "",
+             "return": "void"},
+            {"name": "peek",
+             "args": "",
+             "return": "void"}
+        ]
     }
 }
