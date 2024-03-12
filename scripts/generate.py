@@ -4,11 +4,11 @@ import json
 def get_day(root_dir):
     day_dir = os.path.join('/'.join(root_dir.split('/')[:-1]), 'src')
     list_dir = os.listdir(day_dir)
-    list_dir = [each_file for each_file in list_dir if each_file.startswith('day')]
+    list_dir = [int(each_file.replace('day', '')) for each_file in list_dir if each_file.startswith('day')]
     list_dir.sort()
     max_day = 1
     if len(list_dir) > 0:
-        max_day = int(list_dir[-1][-1]) + 1
+        max_day = int(list_dir[-1]) + 1
     new_day_dir = os.path.join(day_dir, f'day{max_day}')
     os.mkdir(new_day_dir)
     return new_day_dir
@@ -22,6 +22,12 @@ def update_pytest(new_day_dir, pytest_dir):
 def generate_function_code(func_name, func_info, day_dir):
     save_path = os.path.join(day_dir, f'{func_name}.py')
     function_text = f"def {func_info['fn']}({func_info['args']}):\n    pass"
+    if 'import' in func_info:
+        if len(func_info['import']) > 0:
+            import_txt = ""
+            for each_import in func_info['import']:
+                import_txt += each_import + "\n"
+            function_text =  import_txt + function_text
     with open(save_path, 'w+') as f:
         f.write(function_text)
 

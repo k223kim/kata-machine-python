@@ -50,5 +50,12 @@
              "args": "",
              "return": "void"}
         ]
+    },
+    "Merge_Sorted_Array_88":{
+        "type": "fn",
+        "fn": "merge_sorted_array",
+        "args": "nums1: List[int], m: int, nums2: List[int], n: int",
+        "return": "void",
+        "import": ["from typing import List"]
     }
 }
