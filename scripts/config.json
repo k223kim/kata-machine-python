@@ -64,5 +64,12 @@
         "args": "nums: List[int], val: int",
         "return": "int",
         "import": ["from typing import List"]
+    },
+    "Remove_Duplicates_26":{
+        "type": "fn",
+        "fn": "removeDuplicates",
+        "args": "nums: List[int]",
+        "return": "int",
+        "import": ["from typing import List"]
     }
 }
